@@ -1,0 +1,36 @@
+{
+  "name": "watermark-service",
+  "version": "1.0.0",
+  "description": "Watermark Service developed for DerSalvador Cloud-Native Assessment",
+  "main": "app.js",
+  "scripts": {
+    "test:coverage": "jest --coverage",
+    "live": "nodemon app.js",
+    "start": "node app",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasrz/watermark-service.git"
+  },
+  "author": "Lucas Zalaf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasrz/watermark-service/issues"
+  },
+  "homepage": "https://github.com/lucasrz/watermark-service#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.1",
+    "apollo-server-express": "^2.6.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^14.3.1",
+    "graphql-tools": "^4.0.4",
+    "grpc": "^1.21.1",
+    "jest": "^24.8.0",
+    "mali": "^0.16.0",
+    "mongodb": "^3.2.7",
+    "nodemon": "^1.19.1"
+  }
+}
