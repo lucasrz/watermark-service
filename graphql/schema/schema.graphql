@@ -1,0 +1,14 @@
+schema {
+  query: Query
+}
+
+type Query {
+  getWatermark(content: String, title: String): [watermark]
+}
+
+type watermark {
+  content: String
+  title: String
+  author: String
+  topic: String
+}
