@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: watermark
+  namespace: default
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: docker.io/lucasrz/watermark-service
+            env:
+              - name: "TARGET"
+                value: "Watermark Service"
+
