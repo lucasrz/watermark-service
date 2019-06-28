@@ -1,8 +1,14 @@
 const graphQl = require('./graphql/main');
 const grpc  = require('./grpc/main');
+const logger = require('./logger')
+const graphqlPort = '3000';
 
-graphQl.app.listen(3000, () => {
-  console.log(`GraphQL Server Started at http://localhost:3000${graphQl.server.graphqlPath}`);
+graphQl.app.listen(graphqlPort, () => {
+  logger.log({
+    level: 'info',
+    message: `Server Started at http://localhost:${graphqlPort}`,
+    source: 'GraphQL'
+  });
 });
 
 graphQl.app.get('/', function (req, res) {

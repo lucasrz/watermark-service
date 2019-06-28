@@ -1,5 +1,5 @@
-const grpc = require('../../main');
-const getWatermarkStatus = require('./get-watermark-status');
+const grpc = require('../../../main');
+const getWatermarkStatus = require('../get-watermark-status');
 const port = '50051';
 
 describe('gRPC Watermark Status Service', () => {

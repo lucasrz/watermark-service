@@ -1,11 +1,15 @@
 const grpc = require('./grpc/main');
-const port = '50051';
+const graphql = require('./graphql/main');
+const grpcPort = '50051';
+const graphqlPort = '3000';
 
 const MyCustomReporter = {
   async onTestStart() {
-    await grpc.start(port);
+    await graphql.app.listen(graphqlPort);
+    await grpc.start(grpcPort);
   },
   async onTestResult() {
+    await graphql.app.stop();
     await grpc.stop();
   }
 }

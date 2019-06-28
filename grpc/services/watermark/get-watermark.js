@@ -1,8 +1,15 @@
 const MongoClient = require('mongodb').MongoClient;
 const databaseUrl = "mongodb+srv://lucasrz:1wJdYR2U81DLzdtb@cluster0-e2t29.mongodb.net/test?retryWrites=true&w=majority";
 const ObjectId = require('mongodb').ObjectID;
+const logger = require('../../../logger');
 
 async function getWatermark(ctx) {
+  logger.log({
+    level: 'info',
+    message: `Get watermark request`,
+    source: 'gRPC'
+  });
+
   try {
     const id = ctx.request.req.id;
     ctx.res = { 
@@ -25,7 +32,13 @@ async function getWatermark(ctx) {
     ctx.res = result[0];
     return ctx.res;
   } catch (e) {
-  
+    logger.log({
+      level: 'error',
+      message: `Get watermark request: ${e}`,
+      source: 'gRPC'
+    });
+
+    return ctx.res;
   }
 }
   

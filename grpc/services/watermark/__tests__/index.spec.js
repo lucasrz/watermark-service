@@ -1,7 +1,7 @@
-const index = require('./index');
-const createWatermark = require('./create-watermarks');
-const getWatermarkStatus = require('./get-watermark-status');
-const getWatermark = require('./get-watermark');
+const index = require('../index');
+const createWatermark = require('../create-watermarks');
+const getWatermarkStatus = require('../get-watermark-status');
+const getWatermark = require('../get-watermark');
 
 describe('gRPC Watermark Service Index', () => {
   describe('App', () => {

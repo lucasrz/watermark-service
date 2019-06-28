@@ -1,4 +1,4 @@
-const createWatermarkResolver = require('./create-watermark');
+const createWatermarkResolver = require('../create-watermark');
 
 describe('Create Watermark Resolver', () => {
   it('Should return an id for a new watermark', (done) => {

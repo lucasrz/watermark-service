@@ -1,5 +1,5 @@
-const grpc = require('../../main');
-const createWatermark = require('./create-watermarks');
+const grpc = require('../../../main');
+const createWatermark = require('../create-watermarks');
 const port = '50051';
 
 describe('gRPC Create Watermark Service', () => {
