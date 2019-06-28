@@ -1,24 +1,37 @@
 syntax = "proto3";
-import "google/protobuf/empty.proto";
 
 package watermark;
 
 message Watermark {
+  string _id = 1;
   string content = 2;
   string title = 3;
   string author = 4;
   string topic = 5;
 }
 
-message WatermarkRequest {
-  optional string content = 1;
-  optional string title = 2;
+message status {
+  string status = 1;
 }
 
-message WatermarksResponse {
-  repeated Watermark watermark = 1;
+message GetWatermarkRequest {
+  string id = 1;
+}
+
+message CreateWatermarkRequest {
+  repeated Watermark watermark  = 1;
+}
+
+message Ticket {
+  string _id = 1;
+}
+
+message ticketResponse {
+  repeated Ticket ticket = 1;
 }
 
 service WatermarkService {
-  rpc getWatermark (WatermarkRequest) returns (WatermarksResponse) {}
+  rpc getWatermark (GetWatermarkRequest) returns (Watermark) {}
+  rpc getWatermarkStatus (GetWatermarkRequest) returns (status) {}
+  rpc createWatermark (CreateWatermarkRequest) returns (ticketResponse) {}
 }

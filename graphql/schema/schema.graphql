@@ -1,14 +1,36 @@
 schema {
   query: Query
+  mutation: Mutation
 }
 
 type Query {
-  getWatermark(content: String, title: String): [watermark]
+  getWatermark(id: String): watermark
+  getWatermarkStatus(id: String): status
+}
+
+type Mutation {
+  createWatermark(watermark: [WatermarkInput]): [ticket]
+}
+
+type status {
+  status: String
 }
 
 type watermark {
+  _id: String
   content: String
   title: String
   author: String
   topic: String
+}
+
+input WatermarkInput {
+  content: String
+  title: String
+  author: String
+  topic: String
+}
+
+type ticket {
+  _id: String
 }
