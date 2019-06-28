@@ -1,16 +1,25 @@
 
 const WatermarkClient = require('../services/watermark-client');
-const  client = WatermarkClient();
-function getWatermark(root, param){
-  return new Promise((resolve, reject) => {
-    client.getWatermark(param, (err, response) => {
-      if (err) {
-        return reject(err.details);
-      } 
+const client = WatermarkClient();
+function getWatermark(root, param) {
+  try {
+    return new Promise((resolve, reject) => {
+      if (!param.id) {
+        return 'Empty id parameter';
+      }
+      
+      client.getWatermark(param, (err, response) => {
+        if (err) {
+          return err.details;
+        }
 
-      resolve(response.watermark)
+        resolve(response);
+      });
     });
-  });
+  } catch (e) {
+
+    return e;
+  }
 }
 
 module.exports = getWatermark;
